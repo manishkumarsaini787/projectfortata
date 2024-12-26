@@ -45,6 +45,8 @@ public class Product {
         return imgUrl;
     }
 
+
+
     public void setImgUrl(String imgUrl) {
         this.imgUrl = imgUrl;
     }
@@ -59,5 +61,12 @@ public class Product {
     @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
 }

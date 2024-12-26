@@ -2,13 +2,15 @@ package UserProduct.userproductapplication.Service;
 
 import UserProduct.userproductapplication.Model.Product;
 import UserProduct.userproductapplication.Repository.ProductRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
 public class ProductService {
-    private final ProductRepository productRepository;
+  @Autowired
+   ProductRepository productRepository;
 
     public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
@@ -32,7 +34,8 @@ public class ProductService {
                 }).orElseThrow(() -> new RuntimeException("Product not found"));
     }
 
-    public void deleteProduct(Long id) {
+    public boolean deleteProduct(Long id) {
         productRepository.deleteById(id);
+        return false;
     }
 }

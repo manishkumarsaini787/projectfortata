@@ -2,6 +2,7 @@ package UserProduct.userproductapplication.Model;
 
 
 
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,6 +27,7 @@ public class User {
     private String password;
 
     @Column(nullable = false)
+    @NotNull(message = "Role cannot be null")
     private String role;
 
     public Long getId() {
